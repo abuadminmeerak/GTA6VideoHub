@@ -50,9 +50,9 @@ export function ExploreTile({
         src={image}
         alt={title}
         loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover opacity-50 transition-all duration-500 group-hover:scale-110 group-hover:opacity-70"
+        className="absolute inset-0 h-full w-full object-cover opacity-75 transition-all duration-500 group-hover:scale-110 group-hover:opacity-90"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/35 to-transparent" />
       <div className="relative">
         <h3 className="font-display text-xl font-bold uppercase tracking-tight text-foreground transition-colors group-hover:text-neon-pink">
           {title}

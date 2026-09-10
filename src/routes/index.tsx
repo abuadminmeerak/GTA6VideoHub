@@ -6,9 +6,9 @@ import {
   news,
   guides,
   characters,
+  vehicles,
   locations,
   IMG,
-  formatDate,
   type AnyContent,
 } from "@/lib/content";
 import { ContentCard } from "@/components/content-card";
@@ -45,8 +45,8 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const trending = [videos[0], videos[2], news[0], videos[4], clips[0], videos[1]] as AnyContent[];
-  const latestVideos = videos.slice(0, 6);
+  const trending: AnyContent[] = [videos[0]!, guides[0]!, characters[0]!, locations[0]!, vehicles[0]!];
+  const latestVideos = videos;
   const latestNews = news;
 
   return (
@@ -59,8 +59,8 @@ function Index() {
             alt="Vice City sunset atmosphere"
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/40" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-transparent to-background/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-background/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-background/35" />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:py-28 md:py-36">
           <div className="max-w-2xl animate-reveal">
@@ -101,9 +101,9 @@ function Index() {
             title="Trending Now"
             link={{ to: "/trending", label: "All trending →" }}
           />
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            <div className="md:col-span-2 lg:row-span-2">
-            <ContentCard item={trending[0]!} variant="feature" />
+          <div className="grid items-stretch gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="md:col-span-2">
+              <ContentCard item={trending[0]!} variant="feature" />
             </div>
             {trending.slice(1, 5).map((item) => (
               <ContentCard key={item.slug} item={item} />
@@ -112,7 +112,7 @@ function Index() {
         </section>
 
         {/* SECTION 3 — LATEST VIDEOS */}
-        <section className="py-12">
+        {latestVideos.length > 0 && <section className="py-12">
           <SectionHeading
             kicker="Watch"
             title="Latest GTA VI Videos"
@@ -123,10 +123,10 @@ function Index() {
               <ContentCard key={v.slug} item={v} />
             ))}
           </div>
-        </section>
+        </section>}
 
         {/* SECTION 4 — VIRAL CLIPS */}
-        <section className="py-12">
+        {clips.length > 0 && <section className="py-12">
           <SectionHeading
             kicker="Short & viral"
             title="Viral Clips"
@@ -144,10 +144,10 @@ function Index() {
           <p className="mt-3 text-xs text-muted-foreground">
             Clips are embedded from original platforms. We do not rehost creators' videos.
           </p>
-        </section>
+        </section>}
 
         {/* SECTION 5 — LATEST NEWS */}
-        <section className="py-12">
+        {latestNews.length > 0 && <section className="py-12">
           <SectionHeading
             kicker="From Leonida"
             title="Latest From Leonida"
@@ -158,7 +158,7 @@ function Index() {
               <ContentCard key={n.slug} item={n} />
             ))}
           </div>
-        </section>
+        </section>}
 
         {/* SECTION 6 — EXPLORE GTA VI */}
         <section className="py-12">
@@ -168,7 +168,7 @@ function Index() {
               to="/characters"
               title="Characters"
               description="Meet the people of Leonida"
-              image={IMG.heroSunset}
+              image={IMG.jason}
             />
             <ExploreTile
               to="/vehicles"
@@ -261,9 +261,9 @@ function Index() {
                   src={l.thumbnail}
                   alt={l.title}
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover opacity-50 transition-all duration-500 group-hover:scale-110 group-hover:opacity-70"
+                  className="absolute inset-0 h-full w-full object-cover opacity-75 transition-all duration-500 group-hover:scale-110 group-hover:opacity-90"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/35 to-transparent" />
                 <div className="relative">
                   <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-neon-cyan">
                     <MapPin className="h-3 w-3" /> {l.region}

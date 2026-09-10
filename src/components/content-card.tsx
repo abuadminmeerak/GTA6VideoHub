@@ -65,7 +65,7 @@ export function ContentCard({ item, variant = "default", showPlay, duration }: C
       to={detailTo(item)}
       params={{ slug: item.slug }}
       className={cn(
-        "group relative flex flex-col overflow-hidden rounded-lg border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-neon-pink/50 hover:shadow-neon",
+        "group relative flex h-full flex-col overflow-hidden rounded-lg border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-neon-pink/50 hover:shadow-neon",
         variant === "feature" && "md:flex-row",
         variant === "horizontal" && "flex-row",
       )}
@@ -83,7 +83,7 @@ export function ContentCard({ item, variant = "default", showPlay, duration }: C
           loading="lazy"
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/5 to-transparent" />
         {showPlayIcon && (
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="flex h-12 w-12 items-center justify-center rounded-full bg-neon-pink/90 text-neon-pink-foreground shadow-neon transition-transform duration-300 group-hover:scale-110">
