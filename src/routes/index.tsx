@@ -57,19 +57,18 @@ function Index() {
           <img
             src={IMG.heroSunset}
             alt="Vice City sunset atmosphere"
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover brightness-110 saturate-[1.08]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-background/20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-background/35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/45 via-background/25 to-transparent" />
+          <div className="absolute inset-y-0 left-0 w-[58%] bg-gradient-to-r from-background/50 via-background/25 to-transparent" />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:py-28 md:py-36">
           <div className="max-w-2xl animate-reveal">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-neon-pink/40 bg-background/60 px-3 py-1 text-xs font-bold uppercase tracking-widest text-neon-pink backdrop-blur">
-              <TrendingUp className="h-3.5 w-3.5 animate-trend-pulse" />
+            <div className="mb-4 inline-flex items-center border-b-2 border-neon-pink px-0 pb-2 text-xs font-bold uppercase tracking-[0.28em] text-foreground/90">
               The GTA VI Video Hub
             </div>
-            <h1 className="font-display text-5xl font-bold uppercase leading-[0.9] tracking-tight sm:text-6xl md:text-7xl">
-              Your <span className="text-neon-pink text-glow-pink">GTA VI</span> Video Hub
+            <h1 className="font-display text-5xl font-bold uppercase leading-[0.96] tracking-[0.025em] drop-shadow-[0_3px_18px_rgba(0,0,0,0.55)] sm:text-7xl md:text-8xl">
+              YOUR <span className="text-neon-pink text-glow-pink">GTA VI</span> VIDEO HUB
             </h1>
             <p className="mt-5 max-w-xl text-base text-foreground/85 sm:text-lg">
               Breaking videos, viral clips, trailers, gameplay, news and everything happening across

@@ -14,6 +14,28 @@ const NAV = [
   { label: "Trailers", to: "/trailers" },
 ];
 
+export function SiteLogo() {
+  return (
+    <span
+      aria-label="GTA 6 VideoHub"
+      className="site-logo flex items-baseline gap-1 whitespace-nowrap font-display font-bold uppercase leading-none tracking-[0.015em]"
+    >
+      <span className="text-[1.15rem] text-foreground [text-shadow:0_2px_0_rgba(0,0,0,0.55)] sm:text-3xl">
+        GTA
+      </span>
+      <span className="bg-vice-gradient bg-clip-text text-[2.25rem] leading-[0.72] text-transparent [filter:drop-shadow(0_2px_0_rgba(0,0,0,0.7))] sm:text-5xl">
+        6
+      </span>
+      <span className="text-[1.05rem] text-foreground [text-shadow:0_2px_0_rgba(0,0,0,0.55)] sm:text-2xl">
+        VIDEO
+      </span>
+      <span className="bg-vice-gradient bg-clip-text text-[1.05rem] text-transparent [filter:drop-shadow(0_2px_0_rgba(0,0,0,0.7))] sm:text-2xl">
+        HUB
+      </span>
+    </span>
+  );
+}
+
 export function Header() {
   const [open, setOpen] = useState(false);
 
@@ -22,12 +44,7 @@ export function Header() {
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 px-4 sm:h-16">
         {/* Logo */}
         <Link to="/" className="flex min-w-0 items-center" onClick={() => setOpen(false)}>
-          <span className="flex items-baseline gap-1.5 whitespace-nowrap font-display font-bold uppercase leading-none tracking-[0.04em]">
-            <span className="text-lg text-foreground sm:text-2xl">GTA</span>
-            <span className="bg-vice-gradient bg-clip-text text-3xl leading-[0.8] text-transparent sm:text-4xl">6</span>
-            <span className="text-[0.8rem] text-foreground sm:text-lg">VIDEO</span>
-            <span className="bg-vice-gradient bg-clip-text text-[0.8rem] text-transparent sm:text-lg">HUB</span>
-          </span>
+          <SiteLogo />
         </Link>
 
         {/* Desktop nav */}
