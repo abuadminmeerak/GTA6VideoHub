@@ -21,12 +21,12 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 px-4 sm:h-16">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-          <span className="flex h-8 w-8 items-center justify-center rounded bg-vice-gradient text-xs font-black text-neon-pink-foreground shadow-neon">
-            6
-          </span>
-          <span className="font-display text-lg font-bold uppercase leading-none tracking-tight">
-            GTA6<span className="text-neon-pink">VideoHub</span>
+        <Link to="/" className="flex min-w-0 items-center" onClick={() => setOpen(false)}>
+          <span className="flex items-baseline gap-1.5 whitespace-nowrap font-display font-bold uppercase leading-none tracking-[0.04em]">
+            <span className="text-lg text-foreground sm:text-2xl">GTA</span>
+            <span className="bg-vice-gradient bg-clip-text text-3xl leading-[0.8] text-transparent sm:text-4xl">6</span>
+            <span className="text-[0.8rem] text-foreground sm:text-lg">VIDEO</span>
+            <span className="bg-vice-gradient bg-clip-text text-[0.8rem] text-transparent sm:text-lg">HUB</span>
           </span>
         </Link>
 
