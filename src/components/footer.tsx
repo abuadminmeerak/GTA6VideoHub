@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { SiteLogo } from "@/components/header";
 
 const FOOTER_NAV = [
   { label: "Videos", to: "/videos" },
@@ -26,13 +27,8 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-12">
         <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-1">
-            <Link to="/" className="flex items-center gap-2">
-              <span className="flex h-8 w-8 items-center justify-center rounded bg-vice-gradient text-xs font-black text-neon-pink-foreground shadow-neon">
-                6
-              </span>
-              <span className="font-display text-lg font-bold uppercase tracking-tight">
-                GTA6<span className="text-neon-pink">VideoHub</span>
-              </span>
+            <Link to="/" className="inline-flex items-center" aria-label="GTA6VideoHub home">
+              <SiteLogo variant="footer" />
             </Link>
             <p className="mt-3 text-sm text-muted-foreground">
               The hub for GTA VI videos, clips, news & everything Leonida. Watch. Discover. Explore

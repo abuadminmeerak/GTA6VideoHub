@@ -47,6 +47,7 @@
   --color-neon-pink-foreground: var(--neon-pink-foreground);
 
   --font-display: "Anton", "Oswald", sans-serif;
+  --font-logo: "Archivo Black", "Arial Black", sans-serif;
   --font-sans: "Inter", "DM Sans", sans-serif;
 
   --color-chart-1: var(--chart-1);
@@ -66,10 +67,10 @@
 
 :root {
   --radius: 0.5rem;
-  /* Near-black charcoal base */
-  --background: oklch(0.13 0.018 280);
+  /* Deep navy/purple foundation with visible neon color */
+  --background: oklch(0.17 0.028 280);
   --foreground: oklch(0.97 0.005 60);
-  --card: oklch(0.17 0.02 280);
+  --card: oklch(0.23 0.038 280);
   --card-foreground: oklch(0.97 0.005 60);
   --popover: oklch(0.15 0.02 280);
   --popover-foreground: oklch(0.97 0.005 60);
@@ -113,24 +114,24 @@
 }
 
 .dark {
-  --background: oklch(0.13 0.018 280);
+  --background: oklch(0.17 0.028 280);
   --foreground: oklch(0.97 0.005 60);
-  --card: oklch(0.17 0.02 280);
+  --card: oklch(0.23 0.038 280);
   --card-foreground: oklch(0.97 0.005 60);
-  --popover: oklch(0.15 0.02 280);
+  --popover: oklch(0.21 0.034 280);
   --popover-foreground: oklch(0.97 0.005 60);
   --primary: oklch(0.68 0.28 355);
   --primary-foreground: oklch(0.99 0.005 60);
-  --secondary: oklch(0.22 0.03 280);
+  --secondary: oklch(0.28 0.045 280);
   --secondary-foreground: oklch(0.95 0.005 60);
-  --muted: oklch(0.22 0.02 280);
-  --muted-foreground: oklch(0.7 0.03 280);
+  --muted: oklch(0.28 0.04 280);
+  --muted-foreground: oklch(0.78 0.035 280);
   --accent: oklch(0.74 0.2 50);
   --accent-foreground: oklch(0.13 0.02 280);
   --destructive: oklch(0.62 0.24 25);
   --destructive-foreground: oklch(0.98 0.005 60);
-  --border: oklch(0.28 0.03 280);
-  --input: oklch(0.24 0.03 280);
+  --border: oklch(0.38 0.065 280);
+  --input: oklch(0.31 0.045 280);
   --ring: oklch(0.68 0.28 355);
   --neon-pink: oklch(0.7 0.29 355);
   --sunset: oklch(0.76 0.21 50);
@@ -167,6 +168,9 @@
 }
 @utility text-glow-cyan {
   text-shadow: 0 0 18px color-mix(in oklab, var(--neon-cyan) 60%, transparent);
+}
+@utility font-logo {
+  font-family: var(--font-logo);
 }
 @utility shadow-neon {
   box-shadow: 0 0 24px -4px color-mix(in oklab, var(--neon-pink) 45%, transparent);

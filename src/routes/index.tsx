@@ -16,6 +16,7 @@ import { SectionHeading } from "@/components/section";
 import { Newsletter } from "@/components/newsletter";
 import { ExploreTile } from "@/components/hub-layout";
 import { TrendingBadge } from "@/components/badges";
+import { SiteLogo } from "@/components/header";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -52,29 +53,27 @@ function Index() {
   return (
     <div>
       {/* SECTION 1 — HERO */}
-      <section className="relative overflow-hidden">
+      <section className="relative h-[430px] overflow-hidden sm:h-[460px] lg:h-[480px]">
         <div className="absolute inset-0">
           <img
             src={IMG.heroSunset}
             alt="Vice City sunset atmosphere"
-            className="h-full w-full object-cover brightness-110 saturate-[1.08]"
+            className="h-full w-full object-cover object-center brightness-125 contrast-110 saturate-[1.2]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/45 via-background/25 to-transparent" />
-          <div className="absolute inset-y-0 left-0 w-[58%] bg-gradient-to-r from-background/50 via-background/25 to-transparent" />
         </div>
-        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:py-28 md:py-36">
-          <div className="max-w-2xl animate-reveal">
-            <div className="mb-4 inline-flex items-center border-b-2 border-neon-pink px-0 pb-2 text-xs font-bold uppercase tracking-[0.28em] text-foreground/90">
+        <div className="relative mx-auto flex h-full max-w-7xl items-start px-4 pt-8 sm:pt-10 lg:pt-11">
+          <div className="max-w-[62rem] animate-reveal">
+            <div className="mb-3 inline-flex items-center border-b-2 border-neon-pink px-0 pb-1.5 text-xs font-bold uppercase tracking-[0.28em] text-foreground [text-shadow:1px_2px_4px_rgba(0,0,0,0.9)]">
               The GTA VI Video Hub
             </div>
-            <h1 className="font-display text-5xl font-bold uppercase leading-[0.96] tracking-[0.025em] drop-shadow-[0_3px_18px_rgba(0,0,0,0.55)] sm:text-7xl md:text-8xl">
-              YOUR <span className="text-neon-pink text-glow-pink">GTA VI</span> VIDEO HUB
+            <h1 className="-ml-1 drop-shadow-[0_5px_12px_rgba(0,0,0,0.6)] sm:-ml-2">
+              <SiteLogo variant="hero" />
             </h1>
-            <p className="mt-5 max-w-xl text-base text-foreground/85 sm:text-lg">
+            <p className="mt-4 max-w-xl text-base font-medium text-foreground [text-shadow:1px_2px_5px_rgba(0,0,0,0.9)] sm:text-lg">
               Breaking videos, viral clips, trailers, gameplay, news and everything happening across
               Leonida.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-5 flex flex-wrap gap-3">
               <Link
                 to="/trending"
                 className="inline-flex items-center gap-2 rounded-md bg-vice-gradient px-6 py-3 text-sm font-bold uppercase tracking-wide text-neon-pink-foreground transition-transform hover:scale-[1.03] hover:shadow-neon"
@@ -111,21 +110,21 @@ function Index() {
         </section>
 
         {/* SECTION 3 — LATEST VIDEOS */}
-        {latestVideos.length > 0 && <section className="py-12">
+        {latestVideos.length > 0 && <section className="py-8">
           <SectionHeading
             kicker="Watch"
             title="Latest GTA VI Videos"
             link={{ to: "/videos", label: "View all videos →" }}
           />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className={latestVideos.length === 1 ? "lg:max-w-4xl" : "grid gap-4 sm:grid-cols-2 lg:grid-cols-3"}>
             {latestVideos.map((v) => (
-              <ContentCard key={v.slug} item={v} />
+              <ContentCard key={v.slug} item={v} variant={latestVideos.length === 1 ? "feature" : "default"} />
             ))}
           </div>
         </section>}
 
         {/* SECTION 4 — VIRAL CLIPS */}
-        {clips.length > 0 && <section className="py-12">
+        {clips.length > 0 && <section className="py-8">
           <SectionHeading
             kicker="Short & viral"
             title="Viral Clips"
@@ -146,7 +145,7 @@ function Index() {
         </section>}
 
         {/* SECTION 5 — LATEST NEWS */}
-        {latestNews.length > 0 && <section className="py-12">
+        {latestNews.length > 0 && <section className="py-8">
           <SectionHeading
             kicker="From Leonida"
             title="Latest From Leonida"
@@ -160,7 +159,7 @@ function Index() {
         </section>}
 
         {/* SECTION 6 — EXPLORE GTA VI */}
-        <section className="py-12">
+        <section className="py-8">
           <SectionHeading kicker="Dive deeper" title="Explore GTA VI" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             <ExploreTile
@@ -197,26 +196,26 @@ function Index() {
         </section>
 
         {/* SECTION 7 — CHARACTERS */}
-        <section className="py-12">
+        <section className="py-8">
           <SectionHeading
             kicker="The story"
             title="Meet the Characters"
             link={{ to: "/characters", label: "All characters →" }}
           />
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className={characters.length === 1 ? "lg:max-w-4xl" : "grid gap-4 sm:grid-cols-2"}>
             {characters.map((c) => (
               <Link
                 key={c.slug}
                 to="/characters/$slug"
                 params={{ slug: c.slug }}
-                className="group relative flex overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-neon-pink/50 hover:shadow-neon"
+                className="group relative flex overflow-hidden rounded-xl border border-neon-purple/45 bg-card shadow-[0_10px_30px_rgba(0,0,0,0.2)] transition-all duration-300 hover:-translate-y-1 hover:border-neon-pink/70 hover:shadow-neon"
               >
                 <div className="relative aspect-[3/4] w-40 shrink-0 overflow-hidden sm:w-48">
                   <img
                     src={c.thumbnail}
                     alt={c.fullName}
                     loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="h-full w-full object-cover brightness-110 contrast-[1.08] saturate-[1.2] opacity-100 transition-transform duration-500 group-hover:scale-105"
                   />
                   {c.trending && (
                     <div className="absolute left-2 top-2">
@@ -242,13 +241,13 @@ function Index() {
         </section>
 
         {/* SECTION 8 — EXPLORE LEONIDA */}
-        <section className="py-12">
+        <section className="py-8">
           <SectionHeading
             kicker="The setting"
             title="Explore Leonida"
             link={{ to: "/locations", label: "All locations →" }}
           />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className={locations.length === 1 ? "lg:max-w-4xl" : "grid gap-4 sm:grid-cols-2 lg:grid-cols-3"}>
             {locations.map((l) => (
               <Link
                 key={l.slug}
@@ -260,9 +259,9 @@ function Index() {
                   src={l.thumbnail}
                   alt={l.title}
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover opacity-75 transition-all duration-500 group-hover:scale-110 group-hover:opacity-90"
+                  className="absolute inset-0 h-full w-full object-cover brightness-110 contrast-[1.08] saturate-[1.2] opacity-100 transition-all duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/35 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-background/75 via-background/25 to-transparent" />
                 <div className="relative">
                   <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-neon-cyan">
                     <MapPin className="h-3 w-3" /> {l.region}
@@ -278,15 +277,15 @@ function Index() {
         </section>
 
         {/* SECTION 9 — GUIDES */}
-        <section className="py-12">
+        <section className="py-8">
           <SectionHeading
             kicker="Learn the game"
             title="GTA VI Guides"
             link={{ to: "/guides", label: "All guides →" }}
           />
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className={guides.length === 1 ? "lg:max-w-4xl" : "grid gap-4 md:grid-cols-3"}>
             {guides.map((g) => (
-              <ContentCard key={g.slug} item={g} />
+              <ContentCard key={g.slug} item={g} variant={guides.length === 1 ? "feature" : "default"} />
             ))}
           </div>
           <p className="mt-4 text-xs text-muted-foreground">
@@ -296,7 +295,7 @@ function Index() {
         </section>
 
         {/* SECTION 10 — NEWSLETTER */}
-        <section className="py-12">
+        <section className="py-8">
           <Newsletter />
         </section>
       </div>

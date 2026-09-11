@@ -44,15 +44,15 @@ export function ExploreTile({
   return (
     <Link
       to={to}
-      className="group relative flex h-40 flex-col justify-end overflow-hidden rounded-xl border border-border p-4 transition-all duration-300 hover:-translate-y-1 hover:border-neon-pink/50 hover:shadow-neon sm:h-48"
+      className="group relative flex h-40 flex-col justify-end overflow-hidden rounded-xl border border-neon-purple/45 bg-card p-4 shadow-[0_10px_30px_rgba(0,0,0,0.2)] transition-all duration-300 hover:-translate-y-1 hover:border-neon-pink/70 hover:shadow-neon sm:h-48"
     >
       <img
         src={image}
         alt={title}
         loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover opacity-75 transition-all duration-500 group-hover:scale-110 group-hover:opacity-90"
+        className="absolute inset-0 h-full w-full object-cover brightness-110 contrast-[1.08] saturate-[1.2] opacity-100 transition-all duration-500 group-hover:scale-110"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/35 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-background/75 via-background/25 to-transparent" />
       <div className="relative">
         <h3 className="font-display text-xl font-bold uppercase tracking-tight text-foreground transition-colors group-hover:text-neon-pink">
           {title}

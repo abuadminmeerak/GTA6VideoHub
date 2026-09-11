@@ -65,7 +65,7 @@ export function ContentCard({ item, variant = "default", showPlay, duration }: C
       to={detailTo(item)}
       params={{ slug: item.slug }}
       className={cn(
-        "group relative flex h-full flex-col overflow-hidden rounded-lg border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-neon-pink/50 hover:shadow-neon",
+        "group relative flex h-full flex-col overflow-hidden rounded-xl border border-neon-purple/45 bg-card shadow-[0_10px_30px_rgba(0,0,0,0.2)] transition-all duration-300 hover:-translate-y-1 hover:border-neon-pink/70 hover:shadow-neon",
         variant === "feature" && "md:flex-row",
         variant === "horizontal" && "flex-row",
       )}
@@ -81,9 +81,8 @@ export function ContentCard({ item, variant = "default", showPlay, duration }: C
           src={item.thumbnail}
           alt={item.title}
           loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="h-full w-full object-cover brightness-110 contrast-[1.08] saturate-[1.2] opacity-100 transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/5 to-transparent" />
         {showPlayIcon && (
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="flex h-12 w-12 items-center justify-center rounded-full bg-neon-pink/90 text-neon-pink-foreground shadow-neon transition-transform duration-300 group-hover:scale-110">
@@ -116,7 +115,7 @@ export function ContentCard({ item, variant = "default", showPlay, duration }: C
         </div>
         <h3
           className={cn(
-            "font-display font-bold leading-tight tracking-tight text-foreground transition-colors group-hover:text-neon-pink",
+            "font-display font-bold leading-[1.05] tracking-[0.01em] text-foreground transition-colors group-hover:text-neon-pink",
             variant === "feature" ? "text-xl sm:text-2xl md:text-3xl" : "text-base sm:text-lg",
             variant === "horizontal" && "text-sm",
           )}

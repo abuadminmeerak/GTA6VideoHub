@@ -14,22 +14,43 @@ const NAV = [
   { label: "Trailers", to: "/trailers" },
 ];
 
-export function SiteLogo() {
+export function SiteLogo({ variant = "header" }: { variant?: "header" | "hero" | "footer" }) {
+  const isHero = variant === "hero";
+  const isFooter = variant === "footer";
+
   return (
     <span
       aria-label="GTA 6 VideoHub"
-      className="site-logo flex items-baseline gap-1 whitespace-nowrap font-display font-bold uppercase leading-none tracking-[0.015em]"
+      className={`site-logo font-logo inline-flex items-baseline whitespace-nowrap uppercase leading-none tracking-[-0.025em] ${
+        isHero ? "gap-0" : "gap-0"
+      }`}
     >
-      <span className="text-[1.15rem] text-foreground [text-shadow:0_2px_0_rgba(0,0,0,0.55)] sm:text-3xl">
+      <span
+        className={`${
+          isHero ? "text-[clamp(3.4rem,7.5vw,8.5rem)]" : isFooter ? "text-[1.7rem] sm:text-3xl" : "text-[1.25rem] sm:text-[1.65rem]"
+        } text-foreground [-webkit-text-stroke:3px_#05030b] [paint-order:stroke_fill] [text-shadow:3px_4px_0_rgba(0,0,0,0.8)]`}
+      >
         GTA
       </span>
-      <span className="bg-vice-gradient bg-clip-text text-[2.25rem] leading-[0.72] text-transparent [filter:drop-shadow(0_2px_0_rgba(0,0,0,0.7))] sm:text-5xl">
+      <span
+        className={`${
+          isHero ? "text-[clamp(4.8rem,10vw,11rem)]" : isFooter ? "text-[3.5rem] sm:text-5xl" : "text-[2.5rem] sm:text-[2.65rem]"
+        } bg-vice-gradient bg-clip-text leading-[0.64] text-transparent [-webkit-text-stroke:3px_#05030b] [paint-order:stroke_fill] [filter:drop-shadow(3px_4px_2px_rgba(255,20,170,0.38))]`}
+      >
         6
       </span>
-      <span className="text-[1.05rem] text-foreground [text-shadow:0_2px_0_rgba(0,0,0,0.55)] sm:text-2xl">
+      <span
+        className={`${
+          isHero ? "text-[clamp(3.4rem,7.5vw,8.5rem)]" : isFooter ? "text-[1.55rem] sm:text-2xl" : "text-[1.05rem] sm:text-[1.25rem]"
+        } text-foreground [-webkit-text-stroke:3px_#05030b] [paint-order:stroke_fill] [text-shadow:3px_4px_0_rgba(0,0,0,0.8)]`}
+      >
         VIDEO
       </span>
-      <span className="bg-vice-gradient bg-clip-text text-[1.05rem] text-transparent [filter:drop-shadow(0_2px_0_rgba(0,0,0,0.7))] sm:text-2xl">
+      <span
+        className={`${
+          isHero ? "text-[clamp(3.4rem,7.5vw,8.5rem)]" : isFooter ? "text-[1.55rem] sm:text-2xl" : "text-[1.05rem] sm:text-[1.25rem]"
+        } bg-vice-gradient bg-clip-text text-transparent [-webkit-text-stroke:3px_#05030b] [paint-order:stroke_fill] [filter:drop-shadow(3px_4px_2px_rgba(255,20,170,0.38))]`}
+      >
         HUB
       </span>
     </span>
@@ -41,14 +62,14 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md">
-      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 px-4 sm:h-16">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 sm:h-[68px]">
         {/* Logo */}
-        <Link to="/" className="flex min-w-0 items-center" onClick={() => setOpen(false)}>
+        <Link to="/" className="mr-2 flex min-w-0 shrink-0 items-center lg:mr-4" onClick={() => setOpen(false)}>
           <SiteLogo />
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav className="hidden flex-1 items-center justify-center gap-1 lg:flex">
           {NAV.map((item) =>
             item.to === "/" ? (
               <Link
@@ -76,6 +97,14 @@ export function Header() {
         {/* Right actions */}
         <div className="flex items-center gap-1.5">
           <Link
+            to="/search"
+            className="hidden h-9 w-56 items-center gap-2 rounded-full border border-border bg-background/55 px-3 text-sm text-muted-foreground transition-colors hover:border-neon-cyan hover:text-foreground xl:flex"
+            aria-label="Search videos, news, and more"
+          >
+            <Search className="h-4 w-4 shrink-0" />
+            <span>Search videos, news, and more...</span>
+          </Link>
+          <Link
             to="/trending"
             className="hidden items-center gap-1.5 rounded-full border border-neon-pink/40 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-neon-pink transition-colors hover:bg-neon-pink/10 sm:flex"
           >
@@ -85,7 +114,7 @@ export function Header() {
           <Link
             to="/search"
             aria-label="Search"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-foreground/80 transition-colors hover:border-neon-cyan hover:text-neon-cyan"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-foreground/80 transition-colors hover:border-neon-cyan hover:text-neon-cyan xl:hidden"
           >
             <Search className="h-4 w-4" />
           </Link>
